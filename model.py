@@ -19,7 +19,7 @@ class LSTM_VAE(torch.nn.Module):
     self.latent_size = latent_size
 
     # For dictionary lookups 
-    self.dictionary = PTB(data_dir="./data", split="train", create_data= False, max_sequence_length= 60)
+    self.dictionary = PTB(data_dir="./VGDLData", split="train", create_data= False, max_sequence_length= 60)
   
     # X: bsz * seq_len * vocab_size 
     # Embedding
