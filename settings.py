@@ -9,8 +9,8 @@ model_setting = {
 
 
 "embed_size": 50,
-"hidden_size": 800,
-"latent_size": 60,
+"hidden_size": 100,
+"latent_size": 10,
 "lstm_layer": 1
 
 }

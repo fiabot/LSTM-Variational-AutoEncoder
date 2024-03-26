@@ -10,7 +10,7 @@ if __name__ == "__main__":
     percent_valid = 0.1 
     percent_test = 0.1 
       
-    with open("VGDLData/examples/all_games_sp.csv") as csv_file:
+    with open("VGDLDataGeneralized/examples/all_games_sp.csv") as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         for row in csv_reader:
             all_files.append(row[1])
@@ -25,17 +25,22 @@ if __name__ == "__main__":
     test_files = all_files[train_index:test_index]
     valid_files = all_files[test_index:]
 
-    with open("VGDLData/ptb.train.csv", "w") as file:
+    with open("VGDLDataGeneralized/ptb.all.csv", "w") as file:
+        cvs_writer = csv.writer(file, delimiter=",")
+        for i, f in enumerate(all_files):
+            cvs_writer.writerow([i, f])
+
+    with open("VGDLDataGeneralized/ptb.train.csv", "w") as file:
         cvs_writer = csv.writer(file, delimiter=",")
         for i, f in enumerate(training_files):
             cvs_writer.writerow([i, f])
 
-    with open("VGDLData/ptb.test.csv", "w") as file:
+    with open("VGDLDataGeneralized/ptb.test.csv", "w") as file:
         cvs_writer = csv.writer(file, delimiter=",")
         for i, f in enumerate(test_files):
             cvs_writer.writerow([i, f])
 
-    with open("VGDLData/ptb.valid.csv", "w") as file:
+    with open("VGDLDataGeneralized/ptb.valid.csv", "w") as file:
         cvs_writer = csv.writer(file, delimiter=",")
         for i, f in enumerate(valid_files):
             cvs_writer.writerow([i, f])

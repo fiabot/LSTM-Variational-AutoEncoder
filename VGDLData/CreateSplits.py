@@ -1,4 +1,5 @@
 
+
 import csv
 import random 
 import math 
@@ -25,6 +26,11 @@ if __name__ == "__main__":
     test_files = all_files[train_index:test_index]
     valid_files = all_files[test_index:]
 
+    with open("VGDLData/ptb.all.csv", "w") as file:
+        cvs_writer = csv.writer(file, delimiter=",")
+        for i, f in enumerate(all_files):
+            cvs_writer.writerow([i, f])
+
     with open("VGDLData/ptb.train.csv", "w") as file:
         cvs_writer = csv.writer(file, delimiter=",")
         for i, f in enumerate(training_files):
@@ -39,6 +45,8 @@ if __name__ == "__main__":
         cvs_writer = csv.writer(file, delimiter=",")
         for i, f in enumerate(valid_files):
             cvs_writer.writerow([i, f])
+
+
 
 
 

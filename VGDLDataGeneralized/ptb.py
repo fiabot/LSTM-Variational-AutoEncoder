@@ -8,8 +8,10 @@ from collections import defaultdict
 from torch.utils.data import Dataset
 from nltk.tokenize import TweetTokenizer
 
-#from VGDLData.utils import OrderedCounter
-from utils import OrderedCounter
+try: 
+    from utils import OrderedCounter
+except: 
+    from VGDLDataGeneralized.utils import OrderedCounter
 
 class PTB(Dataset):
 
@@ -131,7 +133,7 @@ class PTB(Dataset):
 
     def _create_data(self):
 
-        if self.split == 'train':
+        if self.split == 'all':
             self._create_vocab()
         else:
             self._load_vocab()
@@ -169,7 +171,7 @@ class PTB(Dataset):
 
     def _create_vocab(self):
 
-        assert self.split == 'train', "Vocablurary can only be created for training file."
+        #assert self.split == 'train', "Vocablurary can only be created for training file."
 
    
 
